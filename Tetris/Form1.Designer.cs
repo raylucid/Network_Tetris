@@ -117,7 +117,7 @@
             this.Remain_Minutes.Name = "Remain_Minutes";
             this.Remain_Minutes.Size = new System.Drawing.Size(44, 27);
             this.Remain_Minutes.TabIndex = 8;
-            this.Remain_Minutes.Text = "01";
+            this.Remain_Minutes.Text = "03";
             // 
             // Next_Block
             // 
