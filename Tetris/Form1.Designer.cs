@@ -32,6 +32,8 @@
             this.GameBoard = new System.Windows.Forms.Panel();
             this.BackGround = new System.Windows.Forms.PictureBox();
             this.GameStatus = new System.Windows.Forms.Panel();
+            this.Enemy_Screen = new System.Windows.Forms.PictureBox();
+            this.Enemy_Text = new System.Windows.Forms.Label();
             this.Remain_Seconds = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Remain_Minutes = new System.Windows.Forms.Label();
@@ -47,6 +49,7 @@
             this.GameBoard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BackGround)).BeginInit();
             this.GameStatus.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Enemy_Screen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Next_Block)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,6 +76,8 @@
             // GameStatus
             // 
             this.GameStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.GameStatus.Controls.Add(this.Enemy_Screen);
+            this.GameStatus.Controls.Add(this.Enemy_Text);
             this.GameStatus.Controls.Add(this.Remain_Seconds);
             this.GameStatus.Controls.Add(this.label2);
             this.GameStatus.Controls.Add(this.Remain_Minutes);
@@ -89,11 +94,31 @@
             this.GameStatus.Size = new System.Drawing.Size(178, 600);
             this.GameStatus.TabIndex = 1;
             // 
+            // Enemy_Screen
+            // 
+            this.Enemy_Screen.Location = new System.Drawing.Point(15, 475);
+            this.Enemy_Screen.Name = "Enemy_Screen";
+            this.Enemy_Screen.Size = new System.Drawing.Size(120, 112);
+            this.Enemy_Screen.TabIndex = 12;
+            this.Enemy_Screen.TabStop = false;
+            this.Enemy_Screen.Visible = false;
+            // 
+            // Enemy_Text
+            // 
+            this.Enemy_Text.AutoSize = true;
+            this.Enemy_Text.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Enemy_Text.Location = new System.Drawing.Point(11, 444);
+            this.Enemy_Text.Name = "Enemy_Text";
+            this.Enemy_Text.Size = new System.Drawing.Size(97, 27);
+            this.Enemy_Text.TabIndex = 11;
+            this.Enemy_Text.Text = "Enemy";
+            this.Enemy_Text.Visible = false;
+            // 
             // Remain_Seconds
             // 
             this.Remain_Seconds.AutoSize = true;
             this.Remain_Seconds.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Remain_Seconds.Location = new System.Drawing.Point(60, 69);
+            this.Remain_Seconds.Location = new System.Drawing.Point(60, 42);
             this.Remain_Seconds.Name = "Remain_Seconds";
             this.Remain_Seconds.Size = new System.Drawing.Size(44, 27);
             this.Remain_Seconds.TabIndex = 10;
@@ -103,7 +128,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(49, 69);
+            this.label2.Location = new System.Drawing.Point(49, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(21, 27);
             this.label2.TabIndex = 9;
@@ -113,7 +138,7 @@
             // 
             this.Remain_Minutes.AutoSize = true;
             this.Remain_Minutes.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Remain_Minutes.Location = new System.Drawing.Point(10, 69);
+            this.Remain_Minutes.Location = new System.Drawing.Point(10, 42);
             this.Remain_Minutes.Name = "Remain_Minutes";
             this.Remain_Minutes.Size = new System.Drawing.Size(44, 27);
             this.Remain_Minutes.TabIndex = 8;
@@ -121,7 +146,7 @@
             // 
             // Next_Block
             // 
-            this.Next_Block.Location = new System.Drawing.Point(15, 416);
+            this.Next_Block.Location = new System.Drawing.Point(15, 317);
             this.Next_Block.Name = "Next_Block";
             this.Next_Block.Size = new System.Drawing.Size(120, 120);
             this.Next_Block.TabIndex = 7;
@@ -131,7 +156,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(10, 377);
+            this.label6.Location = new System.Drawing.Point(10, 287);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(146, 27);
             this.label6.TabIndex = 6;
@@ -139,7 +164,7 @@
             // 
             // listView1
             // 
-            this.listView1.Location = new System.Drawing.Point(10, 232);
+            this.listView1.Location = new System.Drawing.Point(11, 172);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(154, 112);
             this.listView1.TabIndex = 5;
@@ -149,7 +174,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(10, 190);
+            this.label5.Location = new System.Drawing.Point(10, 142);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 27);
             this.label5.TabIndex = 4;
@@ -159,7 +184,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(10, 148);
+            this.label4.Location = new System.Drawing.Point(76, 105);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(28, 27);
             this.label4.TabIndex = 3;
@@ -169,7 +194,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(10, 108);
+            this.label3.Location = new System.Drawing.Point(10, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 27);
             this.label3.TabIndex = 2;
@@ -179,7 +204,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(10, 27);
+            this.label1.Location = new System.Drawing.Point(10, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 27);
             this.label1.TabIndex = 0;
@@ -201,8 +226,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(478, 600);
-            this.Controls.Add(this.GameStatus);
             this.Controls.Add(this.GameBoard);
+            this.Controls.Add(this.GameStatus);
             this.KeyPreview = true;
             this.Name = "Form1";
             this.Text = "Tetris";
@@ -212,6 +237,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.BackGround)).EndInit();
             this.GameStatus.ResumeLayout(false);
             this.GameStatus.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Enemy_Screen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Next_Block)).EndInit();
             this.ResumeLayout(false);
 
@@ -234,6 +260,8 @@
         private System.Windows.Forms.Label Remain_Seconds;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label Remain_Minutes;
+        public System.Windows.Forms.PictureBox Enemy_Screen;
+        public System.Windows.Forms.Label Enemy_Text;
     }
 }
 

@@ -40,6 +40,8 @@ namespace Tetris
             foreach (Box b in this.Nextfalling.blocks) //Next Block에 해당 블록 표시
                 this.Next_Block.Controls.Add(b);
             this.Now_Playing = true;
+            this.timer1.Start();
+            this.timer2.Start();
         }
         public void Game_Over()
         {
@@ -133,9 +135,22 @@ namespace Tetris
         public Form1()
         {
             InitializeComponent();
-            this.Game_Init();
-            this.timer1.Start();
-            this.timer2.Start();
+            Game_Init();
+        }
+        public Form1(int mode, string input)
+        {
+            InitializeComponent();
+            Enemy_Screen.Visible = true;
+            Enemy_Text.Visible = true;
+            if(mode == 0) // 클라이언트 모드
+            {
+
+            }
+            else if(mode == 1) //서버 모드
+            {
+
+            }
+            Game_Init();
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
