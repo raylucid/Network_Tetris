@@ -3,3 +3,8 @@ D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisPacket\TetrisPacke
 D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.csprojResolveAssemblyReference.cache
 D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.dll
 D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.pdb
+E:\Network_Tetris\TetrisPacket\TetrisPacket\bin\Debug\TetrisPacket.dll
+E:\Network_Tetris\TetrisPacket\TetrisPacket\bin\Debug\TetrisPacket.pdb
+E:\Network_Tetris\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.csprojResolveAssemblyReference.cache
+E:\Network_Tetris\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.dll
+E:\Network_Tetris\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.pdb
