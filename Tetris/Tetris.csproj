@@ -44,7 +44,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="TetrisLibrary">
-      <HintPath>..\TetrisLibrary\bin\Debug\TetrisLibrary.dll</HintPath>
+      <HintPath>..\TetrisLibrary\bin\Release\TetrisLibrary.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
