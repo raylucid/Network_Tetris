@@ -62,14 +62,14 @@ namespace Tetris
                 if(Input_label.Text == "IP") //클라이언트이면
                 {
                     this.Hide();                 //현재 창 숨기기
-                    Form1 fr1 = new Form1(0, s); //모드 0과 IP를 게임창 생성자에 전달
+                    Form1 fr1 = new Form1(1, s); //모드 1과 IP를 게임창 생성자에 전달
                     fr1.ShowDialog();            //게임창 열기
                     this.Close();
                 }
                 else if(Input_label.Text == "PORT") //서버이면
                 {
                     this.Hide();                 //현재 창 숨기기
-                    Form1 fr1 = new Form1(1, s); //모드 0과 IP를 게임창 생성자에 전달
+                    Form1 fr1 = new Form1(2, s); //모드 2과 IP를 게임창 생성자에 전달
                     fr1.ShowDialog();            //게임창 열기
                     this.Close();
                 }
@@ -82,14 +82,14 @@ namespace Tetris
             if (Input_label.Text == "IP") //클라이언트이면
             {
                 this.Hide();                 //현재 창 숨기기
-                Form1 fr1 = new Form1(0, s); //모드 0과 IP를 게임창 생성자에 전달
+                Form1 fr1 = new Form1(1, s); //모드 1과 IP를 게임창 생성자에 전달
                 fr1.ShowDialog();            //게임창 열기
                 this.Close();
             }
             else if (Input_label.Text == "PORT") //서버이면
             {
                 this.Hide();                 //현재 창 숨기기
-                Form1 fr1 = new Form1(1, s); //모드 0과 IP를 게임창 생성자에 전달
+                Form1 fr1 = new Form1(2, s); //모드 2과 IP를 게임창 생성자에 전달
                 fr1.ShowDialog();            //게임창 열기
                 this.Close();
             }

@@ -17,20 +17,25 @@ namespace Tetris
     {
         public class Game_Board  // 게임보드 내의 정보를 제어하는 클래스
         {
-            public int[,] smap = new int[20, 10];      // 게임보드 내의 블록 분포를 나타내는 맵
+            public byte[,] smap = new byte[20, 10];     // 게임보드 내의 블록 분포를 나타내는 맵
             public Box[,] bmap = new Box[20, 10];       // 맵에 연동된 box를 제어
         }
         bool Now_Playing = false;                   //현재 게임이 진행 중임을 나타내는 플래그
-        Game_Board g = new Game_Board();
+        Game_Board g;                               //게임보드 객체
         Block Nowfalling;                           //현재 떨어지고 있는 블록
         Block Nextfalling;                          //다음에 떨어질 블록
 
-        int remain_minutes = 3;
-        int remain_seconds = 60;
-        public static Random r = new Random();
+        int score;                              //게임 점수
+        int combo;                              //콤보 횟수
+        int remain_minutes;                     //남은 분
+        int remain_seconds;                     //남은 초
+        byte game_mode;                             //게임이 싱글 모드인지 멀티 모드인지 판별
+        public static Random r = new Random();      //블록 생성을 위한 랜덤 객체
 
         public void Game_Init()                    //게임 시작시 초기화
         {
+            this.BackGround.Controls.Clear();      //게임 보드 내부 블록 초기화(다시 시작할 때 대비)
+            this.Next_Block.Controls.Clear();      //Next block 내부 블록 초기화(다시 시작할 때 대비)      
             this.Nowfalling = new Block(r.Next(1, 8), r.Next(1, 8));
             foreach (Box b in this.Nowfalling.blocks) //게임보드에 블록 추가
                 this.BackGround.Controls.Add(b);
@@ -40,18 +45,29 @@ namespace Tetris
             foreach (Box b in this.Nextfalling.blocks) //Next Block에 해당 블록 표시
                 this.Next_Block.Controls.Add(b);
             this.Now_Playing = true;
+            this.score = 0;
+            this.Score_text.Text = "0";
+            this.combo = 0;
+            this.remain_minutes = 3;
+            this.remain_seconds = 60;
+            this.Remain_Minutes.Text = "03";
+            this.Remain_Seconds.Text = "00";
+            this.g = new Game_Board(); 
             this.timer1.Start();
             this.timer2.Start();
         }
-        public void Game_Over()
+        public void Game_Over() //게임 오버 되었을 때
         {
-            this.timer1.Stop();
-            this.timer2.Stop();
-            MessageBox.Show("Game Over!");
+            this.timer1.Stop(); //게임 중지
+            this.timer2.Stop(); //남은 시간 체크 중지
+            this.Game_Over_Msg.Visible = true; //게임 오버 메시지 보이기
+            this.Restart_btn.Visible = true;   //재시작 버튼 보이기
+            this.Exit_btn.Visible = true;      //종료 버튼 보이기
         }
         public void Block_Push()                       //Next Block에 있는 Block을 게임보드에 추가하고 다음 블록을 Next Block에 추가              
         {
             int i, j, sum;
+            this.combo = 0;
             foreach (Box b in this.Nowfalling.blocks)   //Nowfalling의 위치정보를 Gameboard에 저장하고 처리한다
             {
                 sum = 0;
@@ -76,6 +92,17 @@ namespace Tetris
                         Box x = this.g.bmap[i, n];
                         this.BackGround.Controls.Remove(x);
                         this.g.bmap[i, n] = null;
+                        if(x.item > 90)           //블록에 아이템이 있을 때
+                        {
+                            if(this.game_mode == 0) //싱글 모드일때
+                            {
+
+                            }
+                            else               //멀티 모드일때
+                            {
+
+                            }
+                        }
                         x.Dispose();
                     }
                     for (int n = i; n > 0; n--)            //윗줄의 블록들을 한 줄씩 아래로 내림
@@ -96,6 +123,12 @@ namespace Tetris
                         this.g.smap[0, n] = 0;
                         this.g.bmap[0, n] = null;
                     }
+                    this.score += 300 * (int)Math.Pow(combo, combo);
+                    this.Score_text.Text = score.ToString();
+                   this.combo++;
+                   this.Combo_label.Text = combo + " Combo!";
+                    if (!Combo_label.Visible)
+                        this.Combo_label.Visible = true;
                 }
             }
             this.Nowfalling = this.Nextfalling;        //Next Block에 있던 block이 Nowfalling이 되게 함
@@ -112,6 +145,10 @@ namespace Tetris
         public void Block_Falling() // 블록이 떨어지게 함
         {
             int i, j;
+            if (this.Combo_label.Visible)
+            {
+                this.timer3.Start();
+            }
             foreach (Box b in this.Nowfalling.blocks) //블록이 다른 블록에 닿거나 바닥에 닿았을 때 정지하고 다음 블록을 움직임
             {
                 if (b.ypos % 30 == 0)                   //블록이 한 칸 안에 온전히 들어왔을 때
@@ -135,22 +172,24 @@ namespace Tetris
         public Form1()
         {
             InitializeComponent();
-            Game_Init();
+            this.game_mode = 0;
+            this.Game_Init();
         }
-        public Form1(int mode, string input)
+        public Form1(byte mode, string input)
         {
             InitializeComponent();
-            Enemy_Screen.Visible = true;
-            Enemy_Text.Visible = true;
-            if(mode == 0) // 클라이언트 모드
+            this.Enemy_Screen.Visible = true;
+            this.Enemy_Text.Visible = true;
+            this.game_mode = mode;
+            if(this.game_mode == 1) // 클라이언트 모드
+            {
+                
+            }
+            else if(this.game_mode == 2) // 서버 모드
             {
 
             }
-            else if(mode == 1) //서버 모드
-            {
-
-            }
-            Game_Init();
+            this.Game_Init();
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -250,7 +289,7 @@ namespace Tetris
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e) //게임을 실행하는 Main Timer
         {
             if (this.Now_Playing == false) // now playing이 false일때 game over!
             {
@@ -298,6 +337,31 @@ namespace Tetris
                 this.Remain_Minutes.Text = "0" + this.remain_minutes;
                 this.Remain_Seconds.Text = "0" + this.remain_seconds;
             }
+        }
+        private void Remove_Combo() //콤보 라벨이 표시 중이면 제거
+        {
+            if (this.Combo_label.Visible)
+                this.Combo_label.Visible = false;
+            else                     //없으면 타이머 종료
+                this.timer3.Stop();
+        }
+
+        private void timer3_Tick(object sender, EventArgs e) // 콤보 메시지 제거 타이머
+        {
+            this.Remove_Combo();
+        }
+
+        private void Restart_btn_Click(object sender, EventArgs e) //재시작 버튼 눌렀을 때
+        {
+            this.Game_Over_Msg.Visible = false;     //게임 오버 메시지 및 선택 버튼 제거
+            this.Restart_btn.Visible = false;
+            this.Exit_btn.Visible = false;
+            this.Game_Init();                           //게임 시작
+        }
+
+        private void Exit_btn_Click(object sender, EventArgs e) //종료 버튼 눌렀을 때
+        {
+            this.Dispose();                 //게임 종료
         }
     }
 }

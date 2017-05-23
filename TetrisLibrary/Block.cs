@@ -12,13 +12,14 @@ namespace TetrisLibrary
     {
         public int xpos;
         public int ypos;
+        public int item;
     }
     public class Block            // 테트리스 블록
     {
-        public  byte[,] block_status;                   // 테트리스 블록을 구성하는 box의 배치 상태
-        public int originX;                            //블록을 둘러싼 가상의 사각형의 x좌표 원점
-        public int originY;                            //블록을 둘러싼 가상의 사각형의 y좌표 원점
-        public List<Box> blocks = new List<Box>();      // 블록을 구성하는 box의 list
+        public byte[,] block_status;                // 테트리스 블록을 구성하는 box의 배치 상태
+        public int originX;                         //블록을 둘러싼 가상의 사각형의 x좌표 원점
+        public int originY;                         //블록을 둘러싼 가상의 사각형의 y좌표 원점
+        public List<Box> blocks = new List<Box>();  // 블록을 구성하는 box의 list
         
 
         public Block(int random1, int random2)      // 블록 초기화
@@ -27,7 +28,7 @@ namespace TetrisLibrary
             this.Status_Init(random1);              // 블록 Status 초기화
             Box temp;                               // box를 추가하기 위한 임시 객체
             Color c = new Color();                  // block의 색상
-
+            Random r = new Random();                // 블록에 아이템을 추가할 랜덤 객체
             switch (random2)
             {
                 case 1:
@@ -74,6 +75,7 @@ namespace TetrisLibrary
                 temp.Size = new Size(30, 30);
                 temp.BackColor = c;
                 temp.BorderStyle = BorderStyle.FixedSingle;
+                temp.item = r.Next(1, 101);                //1~100 중에 91~100만 아이템(10%확률)
                 this.blocks.Add(temp);
             }
             this.Location_Init();

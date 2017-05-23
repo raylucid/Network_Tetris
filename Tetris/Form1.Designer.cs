@@ -30,6 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.GameBoard = new System.Windows.Forms.Panel();
+            this.Exit_btn = new System.Windows.Forms.Button();
+            this.Restart_btn = new System.Windows.Forms.Button();
+            this.Game_Over_Msg = new System.Windows.Forms.Label();
+            this.Combo_label = new System.Windows.Forms.Label();
             this.BackGround = new System.Windows.Forms.PictureBox();
             this.GameStatus = new System.Windows.Forms.Panel();
             this.Enemy_Screen = new System.Windows.Forms.PictureBox();
@@ -39,13 +43,14 @@
             this.Remain_Minutes = new System.Windows.Forms.Label();
             this.Next_Block = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.Item_List = new System.Windows.Forms.ListView();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.Score_text = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.GameBoard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BackGround)).BeginInit();
             this.GameStatus.SuspendLayout();
@@ -55,12 +60,64 @@
             // 
             // GameBoard
             // 
+            this.GameBoard.Controls.Add(this.Exit_btn);
+            this.GameBoard.Controls.Add(this.Restart_btn);
+            this.GameBoard.Controls.Add(this.Game_Over_Msg);
+            this.GameBoard.Controls.Add(this.Combo_label);
             this.GameBoard.Controls.Add(this.BackGround);
             this.GameBoard.Dock = System.Windows.Forms.DockStyle.Left;
             this.GameBoard.Location = new System.Drawing.Point(0, 0);
             this.GameBoard.Name = "GameBoard";
             this.GameBoard.Size = new System.Drawing.Size(300, 600);
             this.GameBoard.TabIndex = 0;
+            // 
+            // Exit_btn
+            // 
+            this.Exit_btn.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Exit_btn.Location = new System.Drawing.Point(157, 266);
+            this.Exit_btn.Name = "Exit_btn";
+            this.Exit_btn.Size = new System.Drawing.Size(127, 38);
+            this.Exit_btn.TabIndex = 3;
+            this.Exit_btn.Text = "Exit";
+            this.Exit_btn.UseVisualStyleBackColor = true;
+            this.Exit_btn.Visible = false;
+            this.Exit_btn.Click += new System.EventHandler(this.Exit_btn_Click);
+            // 
+            // Restart_btn
+            // 
+            this.Restart_btn.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Restart_btn.Location = new System.Drawing.Point(12, 266);
+            this.Restart_btn.Name = "Restart_btn";
+            this.Restart_btn.Size = new System.Drawing.Size(127, 38);
+            this.Restart_btn.TabIndex = 3;
+            this.Restart_btn.Text = "Restart";
+            this.Restart_btn.UseVisualStyleBackColor = true;
+            this.Restart_btn.Visible = false;
+            this.Restart_btn.Click += new System.EventHandler(this.Restart_btn_Click);
+            // 
+            // Game_Over_Msg
+            // 
+            this.Game_Over_Msg.AutoSize = true;
+            this.Game_Over_Msg.Font = new System.Drawing.Font("굴림", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Game_Over_Msg.ForeColor = System.Drawing.Color.Red;
+            this.Game_Over_Msg.Location = new System.Drawing.Point(10, 204);
+            this.Game_Over_Msg.Name = "Game_Over_Msg";
+            this.Game_Over_Msg.Size = new System.Drawing.Size(284, 45);
+            this.Game_Over_Msg.TabIndex = 2;
+            this.Game_Over_Msg.Text = "Game Over!";
+            this.Game_Over_Msg.Visible = false;
+            // 
+            // Combo_label
+            // 
+            this.Combo_label.AutoSize = true;
+            this.Combo_label.Font = new System.Drawing.Font("굴림", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Combo_label.ForeColor = System.Drawing.Color.Red;
+            this.Combo_label.Location = new System.Drawing.Point(95, 266);
+            this.Combo_label.Name = "Combo_label";
+            this.Combo_label.Size = new System.Drawing.Size(87, 19);
+            this.Combo_label.TabIndex = 1;
+            this.Combo_label.Text = "Combo!";
+            this.Combo_label.Visible = false;
             // 
             // BackGround
             // 
@@ -83,9 +140,9 @@
             this.GameStatus.Controls.Add(this.Remain_Minutes);
             this.GameStatus.Controls.Add(this.Next_Block);
             this.GameStatus.Controls.Add(this.label6);
-            this.GameStatus.Controls.Add(this.listView1);
+            this.GameStatus.Controls.Add(this.Item_List);
             this.GameStatus.Controls.Add(this.label5);
-            this.GameStatus.Controls.Add(this.label4);
+            this.GameStatus.Controls.Add(this.Score_text);
             this.GameStatus.Controls.Add(this.label3);
             this.GameStatus.Controls.Add(this.label1);
             this.GameStatus.Dock = System.Windows.Forms.DockStyle.Right;
@@ -162,13 +219,13 @@
             this.label6.TabIndex = 6;
             this.label6.Text = "Next Block";
             // 
-            // listView1
+            // Item_List
             // 
-            this.listView1.Location = new System.Drawing.Point(11, 172);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(154, 112);
-            this.listView1.TabIndex = 5;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.Item_List.Location = new System.Drawing.Point(11, 172);
+            this.Item_List.Name = "Item_List";
+            this.Item_List.Size = new System.Drawing.Size(154, 112);
+            this.Item_List.TabIndex = 5;
+            this.Item_List.UseCompatibleStateImageBehavior = false;
             // 
             // label5
             // 
@@ -180,15 +237,15 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Items";
             // 
-            // label4
+            // Score_text
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(76, 105);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 27);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "0";
+            this.Score_text.AutoSize = true;
+            this.Score_text.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Score_text.Location = new System.Drawing.Point(76, 105);
+            this.Score_text.Name = "Score_text";
+            this.Score_text.Size = new System.Drawing.Size(28, 27);
+            this.Score_text.TabIndex = 3;
+            this.Score_text.Text = "0";
             // 
             // label3
             // 
@@ -220,6 +277,11 @@
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // timer3
+            // 
+            this.timer3.Interval = 1000;
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -234,6 +296,7 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.GameBoard.ResumeLayout(false);
+            this.GameBoard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BackGround)).EndInit();
             this.GameStatus.ResumeLayout(false);
             this.GameStatus.PerformLayout();
@@ -249,9 +312,9 @@
         private System.Windows.Forms.Panel GameStatus;
         private System.Windows.Forms.PictureBox Next_Block;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView Item_List;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label Score_text;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox BackGround;
@@ -262,6 +325,11 @@
         private System.Windows.Forms.Label Remain_Minutes;
         public System.Windows.Forms.PictureBox Enemy_Screen;
         public System.Windows.Forms.Label Enemy_Text;
+        private System.Windows.Forms.Label Combo_label;
+        private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Button Exit_btn;
+        private System.Windows.Forms.Button Restart_btn;
+        private System.Windows.Forms.Label Game_Over_Msg;
     }
 }
 
