@@ -1,0 +1,4 @@
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisLibrary\bin\Debug\TetrisLibrary.dll
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisLibrary\bin\Debug\TetrisLibrary.pdb
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisLibrary\obj\Debug\TetrisLibrary.dll
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisLibrary\obj\Debug\TetrisLibrary.pdb
