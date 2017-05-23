@@ -244,7 +244,7 @@ namespace Tetris
             if(this.game_mode == 1) // 클라이언트 모드 
             {
                 //클라이언트 시작 - 가송 구현
-                ClientStart(input);
+               ClientStart(input);
             }
             else if(this.game_mode == 2) // 서버 모드 
             {
@@ -276,7 +276,8 @@ namespace Tetris
                         //수신을 위한 쓰레드를 등록한다.
                         receiveThread = new Thread(new ThreadStart(Receive));
                         receiveThread.Start();
-                        //  screenShotTimer.Start();
+                        //0.1초마다 캡쳐하기 위해 타이머 등록.
+                        captureTimer.Start();
                     }
                 }
                 else
@@ -443,6 +444,7 @@ namespace Tetris
             //수신을 위한 쓰레드를 등록한다.
             receiveThread = new Thread(new ThreadStart(Receive));
             receiveThread.Start();
+            captureTimer.Start();
         }
         //가송 구현 사항 -End
         //연호 구현 사항 -Start
@@ -621,7 +623,7 @@ namespace Tetris
         //가송 구현 사항 -Start
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //    if (screenShotTimer != null) { screenShotTimer.Stop(); screenShotTimer.Dispose(); }
+            if (captureTimer != null) { captureTimer.Stop(); captureTimer.Dispose(); }
             if (receiveThread != null) receiveThread.Abort();
             if (dataReader != null) dataReader.Close();
             if (dataWriter != null) dataWriter.Close();
@@ -629,6 +631,12 @@ namespace Tetris
 
             if (listener != null) { listener.Stop(); listener = null; }
             if (client != null) { client.Close(); client = null; }
+        }
+
+        private void captureTimer_Tick(object sender, EventArgs e)
+        {
+            //캡쳐하기
+            Copy("send.jpg");
         }
         //가송 구현 사항 -End
     }
