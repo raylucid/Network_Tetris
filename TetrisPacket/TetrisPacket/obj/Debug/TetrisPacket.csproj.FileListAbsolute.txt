@@ -1,0 +1,5 @@
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisPacket\TetrisPacket\bin\Debug\TetrisPacket.dll
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisPacket\TetrisPacket\bin\Debug\TetrisPacket.pdb
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.csprojResolveAssemblyReference.cache
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.dll
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.pdb
