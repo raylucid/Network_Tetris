@@ -58,11 +58,13 @@ namespace Tetris
         private byte[] readBuffer = new byte[1024 * 4];
         private byte[] writeBuffer = new byte[1024 * 4];
 
+        private int receive_number = 0;
+
         //캡쳐할 화면 : BackGround , 상대방 화면 : Enemy_Screen
         public void Copy(string outputFilename)
         {
             bmp = new Bitmap(this.BackGround.Width, this.BackGround.Height);
-
+          
             // Bitmap 이미지 변경을 위해 Graphics 객체 생성
             Graphics gr = Graphics.FromImage(bmp);
             //copyfromscreen 메서드에 사용하기 위해 절대좌표로 변환.
@@ -71,21 +73,21 @@ namespace Tetris
             gr.CopyFromScreen((newPoint.X), (newPoint.Y), 0, 0, BackGround.Size);
 
 
-            FileInfo fi = new FileInfo(Environment.CurrentDirectory + "\\" + outputFilename);
+      /*      FileInfo fi = new FileInfo(Environment.CurrentDirectory + "\\" + outputFilename);
             if (fi.Exists)
             {
                 if (Enemy_Screen.Image != null)
                     Enemy_Screen.Image.Dispose();
                 fi.Delete();
                 fi = null;
-            }
+            }*/
             //캡쳐한 이미지를 파일로 저장
             bmp.Save(outputFilename, System.Drawing.Imaging.ImageFormat.Jpeg);
 
-            bmp.Dispose();
-            bmp = null;
+          //  bmp.Dispose();
+          //  bmp = null;
             gr.Dispose();
-            gr = null;
+          //  gr = null;
             //파일을 패킷으로 보낸다.
             Send(outputFilename);
 
@@ -316,19 +318,19 @@ namespace Tetris
                 case (int)PacketType.스샷:
                     {
 
-                        if (Enemy_Screen.Image != null)
+               /*        if (Enemy_Screen.Image != null)
                         {
                             Invoke(new MethodInvoker(delegate ()
                             {
                                 Enemy_Screen.Image.Dispose();
 
                             }));
-                        }
+                        }*/
                         ScreenShotPacket screenShotPacket = (ScreenShotPacket)ScreenShotPacket.Deserialize(this.readBuffer);
 
                         int p_length = screenShotPacket.Length;
                         //저장될 파일 이름은 receive.jpg로 고정한다.
-                        string filePath = Environment.CurrentDirectory + "\\" + "receive.jpg";
+                        string filePath = Environment.CurrentDirectory + "\\" + "receive" + receive_number + ".jpg";
 
                         FileStream fs;
                         //p_length가 음수이면 데이터 완료를 의미한다.(Send 메서드 참고.)
@@ -365,12 +367,20 @@ namespace Tetris
         //수신된 이미지 파일을 픽쳐 박스에 로드한다.
         private void PrintScreenShot(string filePath)
         {
-            Invoke(new MethodInvoker(delegate ()
-            {
-                string Fname = Path.GetFileName(filePath);
-                Enemy_Screen.Image = Image.FromFile(Fname);
-
-            }));
+            
+                Invoke(new MethodInvoker(delegate ()
+                {
+                    if(Enemy_Screen.Image != null)
+                    {
+                        Enemy_Screen.Image.Dispose();
+                        Enemy_Screen.Image = null;
+                    }
+                    string Fname = Path.GetFileName(filePath);
+                    Enemy_Screen.Image = Image.FromFile(Fname);
+                    receive_number++;
+                    receive_number = receive_number % 2;                
+                }));
+            
         }
 
         private void Send(string fileName)
@@ -637,6 +647,11 @@ namespace Tetris
         {
             //캡쳐하기
             Copy("send.jpg");
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Enemy_Screen.Image = null;
         }
         //가송 구현 사항 -End
     }

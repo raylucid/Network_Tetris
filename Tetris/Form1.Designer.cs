@@ -68,18 +68,16 @@
             this.GameBoard.Controls.Add(this.BackGround);
             this.GameBoard.Dock = System.Windows.Forms.DockStyle.Left;
             this.GameBoard.Location = new System.Drawing.Point(0, 0);
-            this.GameBoard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.GameBoard.Name = "GameBoard";
-            this.GameBoard.Size = new System.Drawing.Size(343, 750);
+            this.GameBoard.Size = new System.Drawing.Size(300, 600);
             this.GameBoard.TabIndex = 0;
             // 
             // Exit_btn
             // 
             this.Exit_btn.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Exit_btn.Location = new System.Drawing.Point(179, 332);
-            this.Exit_btn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Exit_btn.Location = new System.Drawing.Point(157, 266);
             this.Exit_btn.Name = "Exit_btn";
-            this.Exit_btn.Size = new System.Drawing.Size(145, 48);
+            this.Exit_btn.Size = new System.Drawing.Size(127, 38);
             this.Exit_btn.TabIndex = 3;
             this.Exit_btn.Text = "Exit";
             this.Exit_btn.UseVisualStyleBackColor = true;
@@ -89,10 +87,9 @@
             // Restart_btn
             // 
             this.Restart_btn.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Restart_btn.Location = new System.Drawing.Point(14, 332);
-            this.Restart_btn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Restart_btn.Location = new System.Drawing.Point(12, 266);
             this.Restart_btn.Name = "Restart_btn";
-            this.Restart_btn.Size = new System.Drawing.Size(145, 48);
+            this.Restart_btn.Size = new System.Drawing.Size(127, 38);
             this.Restart_btn.TabIndex = 3;
             this.Restart_btn.Text = "Restart";
             this.Restart_btn.UseVisualStyleBackColor = true;
@@ -104,9 +101,9 @@
             this.Game_Over_Msg.AutoSize = true;
             this.Game_Over_Msg.Font = new System.Drawing.Font("굴림", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Game_Over_Msg.ForeColor = System.Drawing.Color.Red;
-            this.Game_Over_Msg.Location = new System.Drawing.Point(11, 255);
+            this.Game_Over_Msg.Location = new System.Drawing.Point(10, 204);
             this.Game_Over_Msg.Name = "Game_Over_Msg";
-            this.Game_Over_Msg.Size = new System.Drawing.Size(350, 57);
+            this.Game_Over_Msg.Size = new System.Drawing.Size(284, 45);
             this.Game_Over_Msg.TabIndex = 2;
             this.Game_Over_Msg.Text = "Game Over!";
             this.Game_Over_Msg.Visible = false;
@@ -116,9 +113,9 @@
             this.Combo_label.AutoSize = true;
             this.Combo_label.Font = new System.Drawing.Font("굴림", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Combo_label.ForeColor = System.Drawing.Color.Red;
-            this.Combo_label.Location = new System.Drawing.Point(109, 332);
+            this.Combo_label.Location = new System.Drawing.Point(95, 266);
             this.Combo_label.Name = "Combo_label";
-            this.Combo_label.Size = new System.Drawing.Size(107, 24);
+            this.Combo_label.Size = new System.Drawing.Size(87, 19);
             this.Combo_label.TabIndex = 1;
             this.Combo_label.Text = "Combo!";
             this.Combo_label.Visible = false;
@@ -129,9 +126,8 @@
             this.BackGround.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.BackGround.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BackGround.Location = new System.Drawing.Point(0, 0);
-            this.BackGround.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BackGround.Name = "BackGround";
-            this.BackGround.Size = new System.Drawing.Size(343, 750);
+            this.BackGround.Size = new System.Drawing.Size(300, 600);
             this.BackGround.TabIndex = 0;
             this.BackGround.TabStop = false;
             // 
@@ -151,18 +147,16 @@
             this.GameStatus.Controls.Add(this.label3);
             this.GameStatus.Controls.Add(this.label1);
             this.GameStatus.Dock = System.Windows.Forms.DockStyle.Right;
-            this.GameStatus.Location = new System.Drawing.Point(343, 0);
-            this.GameStatus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.GameStatus.Location = new System.Drawing.Point(300, 0);
             this.GameStatus.Name = "GameStatus";
-            this.GameStatus.Size = new System.Drawing.Size(203, 750);
+            this.GameStatus.Size = new System.Drawing.Size(178, 600);
             this.GameStatus.TabIndex = 1;
             // 
             // Enemy_Screen
             // 
-            this.Enemy_Screen.Location = new System.Drawing.Point(17, 594);
-            this.Enemy_Screen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Enemy_Screen.Location = new System.Drawing.Point(15, 475);
             this.Enemy_Screen.Name = "Enemy_Screen";
-            this.Enemy_Screen.Size = new System.Drawing.Size(137, 140);
+            this.Enemy_Screen.Size = new System.Drawing.Size(120, 112);
             this.Enemy_Screen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Enemy_Screen.TabIndex = 12;
             this.Enemy_Screen.TabStop = false;
@@ -172,9 +166,9 @@
             // 
             this.Enemy_Text.AutoSize = true;
             this.Enemy_Text.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Enemy_Text.Location = new System.Drawing.Point(13, 555);
+            this.Enemy_Text.Location = new System.Drawing.Point(11, 444);
             this.Enemy_Text.Name = "Enemy_Text";
-            this.Enemy_Text.Size = new System.Drawing.Size(121, 34);
+            this.Enemy_Text.Size = new System.Drawing.Size(97, 27);
             this.Enemy_Text.TabIndex = 11;
             this.Enemy_Text.Text = "Enemy";
             this.Enemy_Text.Visible = false;
@@ -183,9 +177,9 @@
             // 
             this.Remain_Seconds.AutoSize = true;
             this.Remain_Seconds.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Remain_Seconds.Location = new System.Drawing.Point(69, 52);
+            this.Remain_Seconds.Location = new System.Drawing.Point(60, 42);
             this.Remain_Seconds.Name = "Remain_Seconds";
-            this.Remain_Seconds.Size = new System.Drawing.Size(55, 34);
+            this.Remain_Seconds.Size = new System.Drawing.Size(44, 27);
             this.Remain_Seconds.TabIndex = 10;
             this.Remain_Seconds.Text = "00";
             // 
@@ -193,9 +187,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(56, 52);
+            this.label2.Location = new System.Drawing.Point(49, 42);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 34);
+            this.label2.Size = new System.Drawing.Size(21, 27);
             this.label2.TabIndex = 9;
             this.label2.Text = ":";
             // 
@@ -203,18 +197,17 @@
             // 
             this.Remain_Minutes.AutoSize = true;
             this.Remain_Minutes.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Remain_Minutes.Location = new System.Drawing.Point(11, 52);
+            this.Remain_Minutes.Location = new System.Drawing.Point(10, 42);
             this.Remain_Minutes.Name = "Remain_Minutes";
-            this.Remain_Minutes.Size = new System.Drawing.Size(55, 34);
+            this.Remain_Minutes.Size = new System.Drawing.Size(44, 27);
             this.Remain_Minutes.TabIndex = 8;
             this.Remain_Minutes.Text = "03";
             // 
             // Next_Block
             // 
-            this.Next_Block.Location = new System.Drawing.Point(17, 396);
-            this.Next_Block.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Next_Block.Location = new System.Drawing.Point(15, 317);
             this.Next_Block.Name = "Next_Block";
-            this.Next_Block.Size = new System.Drawing.Size(137, 150);
+            this.Next_Block.Size = new System.Drawing.Size(120, 120);
             this.Next_Block.TabIndex = 7;
             this.Next_Block.TabStop = false;
             // 
@@ -222,18 +215,17 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(11, 359);
+            this.label6.Location = new System.Drawing.Point(10, 287);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(185, 34);
+            this.label6.Size = new System.Drawing.Size(146, 27);
             this.label6.TabIndex = 6;
             this.label6.Text = "Next Block";
             // 
             // Item_List
             // 
-            this.Item_List.Location = new System.Drawing.Point(13, 215);
-            this.Item_List.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Item_List.Location = new System.Drawing.Point(11, 172);
             this.Item_List.Name = "Item_List";
-            this.Item_List.Size = new System.Drawing.Size(175, 139);
+            this.Item_List.Size = new System.Drawing.Size(154, 112);
             this.Item_List.TabIndex = 5;
             this.Item_List.UseCompatibleStateImageBehavior = false;
             // 
@@ -241,9 +233,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(11, 178);
+            this.label5.Location = new System.Drawing.Point(10, 142);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 34);
+            this.label5.Size = new System.Drawing.Size(79, 27);
             this.label5.TabIndex = 4;
             this.label5.Text = "Items";
             // 
@@ -251,9 +243,9 @@
             // 
             this.Score_text.AutoSize = true;
             this.Score_text.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Score_text.Location = new System.Drawing.Point(87, 131);
+            this.Score_text.Location = new System.Drawing.Point(76, 105);
             this.Score_text.Name = "Score_text";
-            this.Score_text.Size = new System.Drawing.Size(35, 34);
+            this.Score_text.Size = new System.Drawing.Size(28, 27);
             this.Score_text.TabIndex = 3;
             this.Score_text.Text = "0";
             // 
@@ -261,9 +253,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(11, 98);
+            this.label3.Location = new System.Drawing.Point(10, 78);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 34);
+            this.label3.Size = new System.Drawing.Size(84, 27);
             this.label3.TabIndex = 2;
             this.label3.Text = "Score";
             // 
@@ -271,9 +263,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(11, 10);
+            this.label1.Location = new System.Drawing.Point(10, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 34);
+            this.label1.Size = new System.Drawing.Size(73, 27);
             this.label1.TabIndex = 0;
             this.label1.Text = "Time";
             // 
@@ -298,17 +290,17 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(546, 750);
+            this.ClientSize = new System.Drawing.Size(478, 600);
             this.Controls.Add(this.GameBoard);
             this.Controls.Add(this.GameStatus);
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Tetris";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.GameBoard.ResumeLayout(false);

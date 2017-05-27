@@ -1,0 +1,14 @@
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\bin\Release\Tetris.exe.config
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\bin\Release\Tetris.exe
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\bin\Release\Tetris.pdb
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\bin\Release\TetrisLibrary.dll
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\bin\Release\TetrisPacket.dll
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\bin\Release\TetrisLibrary.pdb
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\bin\Release\TetrisPacket.pdb
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\obj\Release\Tetris.csprojResolveAssemblyReference.cache
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\obj\Release\Tetris.Form1.resources
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\obj\Release\Tetris.Form2.resources
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\obj\Release\Tetris.Properties.Resources.resources
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\obj\Release\Tetris.csproj.GenerateResource.Cache
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\obj\Release\Tetris.exe
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\obj\Release\Tetris.pdb
