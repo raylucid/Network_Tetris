@@ -17,17 +17,26 @@ namespace Tetris
 {
     public partial class Form1 : Form
     {
+        //동현 구현 사항 -Start
+        bool aitem = false;                     //속도 아이템이 사용 중인지 나타내는 플래그
+        int myItem = 0;    
+        int atime = 0;                          //속도 아이템 적용 시 timer tick마다 증가(일정 값 이상 시 사용종료)
+        int nspeed = 300;                       //게임 속도
+        int tspeed;                             //아이템 사용 시 기존 속도 저장
+        //동현 구현 사항 - End
+
         //연호 구현 사항 -Start
         public class Game_Board  // 게임보드 내의 정보를 제어하는 클래스 
         {
             public byte[,] smap = new byte[20, 10];     // 게임보드 내의 블록 분포를 나타내는 맵 
             public Box[,] bmap = new Box[20, 10];       // 맵에 연동된 box를 제어 
         }
+        
         bool Now_Playing = false;                   //현재 게임이 진행 중임을 나타내는 플래그 
         Game_Board g;                               //게임보드 객체 
         Block Nowfalling;                           //현재 떨어지고 있는 블록 
         Block Nextfalling;                          //다음에 떨어질 블록 
-
+        
         int score;                              //게임 점수 
         int combo;                              //콤보 횟수 
         int remain_minutes;                     //남은 분 
@@ -72,22 +81,9 @@ namespace Tetris
             //지정한 영역을 캡쳐
             gr.CopyFromScreen((newPoint.X), (newPoint.Y), 0, 0, BackGround.Size);
 
-
-      /*      FileInfo fi = new FileInfo(Environment.CurrentDirectory + "\\" + outputFilename);
-            if (fi.Exists)
-            {
-                if (Enemy_Screen.Image != null)
-                    Enemy_Screen.Image.Dispose();
-                fi.Delete();
-                fi = null;
-            }*/
             //캡쳐한 이미지를 파일로 저장
             bmp.Save(outputFilename, System.Drawing.Imaging.ImageFormat.Jpeg);
-
-          //  bmp.Dispose();
-          //  bmp = null;
             gr.Dispose();
-          //  gr = null;
             //파일을 패킷으로 보낸다.
             Send(outputFilename);
 
@@ -154,14 +150,67 @@ namespace Tetris
                         Box x = this.g.bmap[i, n];
                         this.BackGround.Controls.Remove(x);
                         this.g.bmap[i, n] = null;
-                        if(x.item > 90)           //블록에 아이템이 있을 때 
+                        if(x.item > 98)           //블록에 아이템이 있을 때 
                         {
-                            if(this.game_mode == 0) //싱글 모드일때 
+                            if(this.game_mode == 0) //싱글 모드일때 -동현 구현 사항
+                            {
+                                string koi = null;
+                                Random r = new Random();
+                                this.myItem = r.Next(1, 3);
+
+                                switch (this.myItem)
+                                {
+                                    case 1:
+                                        {
+                                            koi = "속도 감소";
+                                            break;
+                                        }
+                                    case 2:
+                                        {
+                                            koi = "한 줄 제거";
+                                            break;
+                                        }
+                                }
+                                ListViewItem newitem = new ListViewItem(koi);
+                                Item_List.Items.Add(newitem);
+                            }
+                            else               //멀티 모드일때 -동현 구현 사항
                             {
 
-                            }
-                            else               //멀티 모드일때 
-                            {
+                                string koi = null;
+                                Random r = new Random();
+                                this.myItem = r.Next(1, 6);
+
+                                switch (this.myItem)
+                                {
+                                    case 1:
+                                        {
+                                            koi = "속도 감소";
+                                            break;
+                                        }
+                                    case 2:
+                                        {
+                                            koi = "맨 아랫 줄 제거";
+                                            break;
+                                        }
+                                    case 3:
+                                        {
+                                            koi = "상대 속도 증가";
+                                            break;
+                                        }
+                                    case 4:
+                                        {
+                                            koi = "상대 줄 추가";
+                                            break;
+                                        }
+                                    case 5:
+                                        {
+                                            koi = "상대 화면 가리기";
+                                            break;
+                                        }
+                                }
+                                ListViewItem newitem = new ListViewItem(koi);
+                                Item_List.Items.Add(newitem);
 
                             }
                         }
@@ -185,7 +234,7 @@ namespace Tetris
                         this.g.smap[0, n] = 0;
                         this.g.bmap[0, n] = null;
                     }
-                    this.score += 300 * (int)Math.Pow(combo, combo);
+                    this.score += 300 * (int)Math.Pow(combo, combo); //점수 = 300 * 콤보^2
                     this.Score_text.Text = score.ToString();
                    this.combo++;
                    this.Combo_label.Text = combo + " Combo!";
@@ -207,9 +256,9 @@ namespace Tetris
         public void Block_Falling() // 블록이 떨어지게 함 
         {
             int i, j;
-            if (this.Combo_label.Visible)
+            if (this.Combo_label.Visible)//콤보 라벨을 표시할 때
             {
-                this.timer3.Start();
+                this.timer3.Start();//타이머 작동
             }
             foreach (Box b in this.Nowfalling.blocks) //블록이 다른 블록에 닿거나 바닥에 닿았을 때 정지하고 다음 블록을 움직임 
             { 
@@ -317,15 +366,6 @@ namespace Tetris
             {
                 case (int)PacketType.스샷:
                     {
-
-               /*        if (Enemy_Screen.Image != null)
-                        {
-                            Invoke(new MethodInvoker(delegate ()
-                            {
-                                Enemy_Screen.Image.Dispose();
-
-                            }));
-                        }*/
                         ScreenShotPacket screenShotPacket = (ScreenShotPacket)ScreenShotPacket.Deserialize(this.readBuffer);
 
                         int p_length = screenShotPacket.Length;
@@ -494,8 +534,11 @@ namespace Tetris
                             {
                                 if (this.g.smap[y, x] == 1) //회전한 위치 위에 블록이 있으면 명령 무시 
                                     return;
-                                else if (this.g.smap[y + 1, x] == 1) //회전한 위치 아래에 블록이 있으면 명령 무시 
-                                    return;
+                                if (y != 19) //y가 19가 아닐 때(out of index 방지)
+                                {
+                                    if (this.g.smap[y + 1, x] == 1) //회전한 위치 아래에 블록이 있으면 명령 무시 
+                                        return;
+                                }                    
                             }
                         }
                         xtemp += 30;                       //temp 상태에 맞는 x값을 결정하기 위해 x값 증가   
@@ -553,6 +596,42 @@ namespace Tetris
                 }
                 this.Nowfalling.Move_Right();  //오른쪽으로 한 칸 이동 
             }
+            else if (e.KeyCode == Keys.A) //A키 눌렀을 때 아이템 사용 - 동현 구현 사항
+            {
+                if (!(Item_List.TopItem == null))
+                {
+                    if (Item_List.TopItem.Text == "속도 감소")
+                    {
+                        this.tspeed = this.timer1.Interval;
+                        this.atime = 0;
+                        this.nspeed = 500;
+                        this.timer1.Interval = this.nspeed;
+
+                        this.aitem = true;
+
+                        Item_List.TopItem.Remove();
+
+                    }
+                    else if (Item_List.TopItem.Text == "한 줄 제거")
+                    {
+                        remove_endLine();
+                        Item_List.TopItem.Remove();
+
+                    }
+                    else if (Item_List.TopItem.Name == "상대 속도 증가")
+                    {
+                        //상대에게 int형 변수를 넘겨 준다.
+                    }
+                    else if (Item_List.TopItem.Name == "상대 줄 추가")
+                    {
+                        //상대에세 int형 변수 2를 넘겨준다.
+                    }
+                    else if (Item_List.TopItem.Name == "상대 화면 가리기")
+                    {
+                        //"3을 넘겨준다.
+                    }
+                }
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e) //게임을 실행하는 Main Timer 
@@ -562,13 +641,75 @@ namespace Tetris
                 this.Game_Over();
                 return;
             }
+            if (this.aitem == true)       //속도 조절 아이템이 사용 됐을 경우 250tick 동안 변경 된 속도를 유지- 동현 구현 사항
+            {
+
+                if (this.atime < 250)
+                    this.atime++;
+
+                if (this.atime == 250)    //250tick이 되면 원래 속도로 변경
+                {
+                    this.nspeed = tspeed;
+                    this.timer1.Interval = this.nspeed;
+                    this.aitem = false;
+                    this.atime = 0;
+                }
+            }
             this.Block_Falling();
+        }
+        private void speedUp() //속도 증가 아이템 사용 시 속도를 증가 시킴 - 동현 구현 사항
+        {
+            timer1.Interval = 25;
+            this.aitem = true;
+
+        }
+        private void remove_endLine() //한 줄 제거 아이템 사용 시 마지막 줄 제거 - 동현 구현 사항
+        {
+
+            try
+            {
+                for (int n = 0; n < 10; n++)
+                {
+                    Box x = this.g.bmap[19, n];
+                    if (x != null)
+                    {
+
+                        this.BackGround.Controls.Remove(x); this.g.bmap[19, n] = null;
+                        x.Dispose();
+                    }
+
+                }
+
+            }
+            catch { }
+
+            for (int n = 19; n > 0; n--)            //윗줄의 블록들을 한 줄씩 아래로 내림 
+            {
+                for (int m = 0; m < 10; m++)
+                {
+                    this.g.bmap[n, m] = this.g.bmap[n - 1, m]; //윗줄의 블록을 아랫줄에 복사 
+                    this.g.smap[n, m] = this.g.smap[n - 1, m]; //윗줄의 맵 정보를 아랫줄에 복사 
+                    Box x = this.g.bmap[n, m];
+                    if (x == null)                             //x가 null일때 다음 루프 실행 
+                        continue;
+                    x.Location = new Point(x.xpos, x.ypos + 30); //윗줄의 블록들을 한 줄 아래로 내림 
+                    x.ypos += 30;
+                }
+            }
+            for (int n = 0; n < 10; n++)  //맨 윗줄 초기화 
+            {
+                this.g.smap[0, n] = 0;
+                this.g.bmap[0, n] = null;
+            }
+            this.score += 300;
+
+
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Down)
-                this.timer1.Interval = 500;
+            if (e.KeyCode == Keys.Down) //아래 방향 키를 떼었을 때 원래 속도로 변경
+                this.timer1.Interval = nspeed;
         }
 
         private void timer2_Tick(object sender, EventArgs e) // 남은 시간 표시 

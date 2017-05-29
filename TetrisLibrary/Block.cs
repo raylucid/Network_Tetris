@@ -28,7 +28,7 @@ namespace TetrisLibrary
             this.Status_Init(random1);              // 블록 Status 초기화 
             Box temp;                               // box를 추가하기 위한 임시 객체 
             Color c = new Color();                  // block의 색상 
-            Random r = new Random();                // 블록에 아이템을 추가할 랜덤 객체 
+            Random r = new Random();                // 블록에 아이템을 추가할 랜덤 객체
             switch (random2)
             {
                 case 1:
@@ -75,7 +75,9 @@ namespace TetrisLibrary
                 temp.Size = new Size(30, 30);
                 temp.BackColor = c;
                 temp.BorderStyle = BorderStyle.FixedSingle;
-                temp.item = r.Next(1, 101);                //1~100 중에 91~100만 아이템(10%확률) 
+                temp.item = r.Next(1, 101);                //1~100 중에 98~100만 아이템(3%확률) 
+                if (temp.item > 98)             //아이템을 보유하면 색상 검정색으로 설정-동현 구현 사항
+                    temp.BackColor = Color.Black;          
                 this.blocks.Add(temp);
             }
             this.Location_Init();
