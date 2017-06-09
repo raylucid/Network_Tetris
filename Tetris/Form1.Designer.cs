@@ -52,15 +52,18 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.captureTimer = new System.Windows.Forms.Timer(this.components);
+            this.blind_pbox = new System.Windows.Forms.PictureBox();
             this.GameBoard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BackGround)).BeginInit();
             this.GameStatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Enemy_Screen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Next_Block)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.blind_pbox)).BeginInit();
             this.SuspendLayout();
             // 
             // GameBoard
             // 
+            this.GameBoard.Controls.Add(this.blind_pbox);
             this.GameBoard.Controls.Add(this.Exit_btn);
             this.GameBoard.Controls.Add(this.Restart_btn);
             this.GameBoard.Controls.Add(this.Game_Over_Msg);
@@ -223,11 +226,13 @@
             // 
             // Item_List
             // 
+            this.Item_List.Enabled = false;
             this.Item_List.Location = new System.Drawing.Point(11, 172);
             this.Item_List.Name = "Item_List";
             this.Item_List.Size = new System.Drawing.Size(154, 112);
             this.Item_List.TabIndex = 5;
             this.Item_List.UseCompatibleStateImageBehavior = false;
+            this.Item_List.View = System.Windows.Forms.View.List;
             // 
             // label5
             // 
@@ -288,6 +293,17 @@
             // 
             this.captureTimer.Tick += new System.EventHandler(this.captureTimer_Tick);
             // 
+            // blind_pbox
+            // 
+            this.blind_pbox.Image = global::Tetris.Properties.Resources.멜롱;
+            this.blind_pbox.Location = new System.Drawing.Point(0, 0);
+            this.blind_pbox.Name = "blind_pbox";
+            this.blind_pbox.Size = new System.Drawing.Size(300, 201);
+            this.blind_pbox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.blind_pbox.TabIndex = 4;
+            this.blind_pbox.TabStop = false;
+            this.blind_pbox.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -310,6 +326,7 @@
             this.GameStatus.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Enemy_Screen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Next_Block)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.blind_pbox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -339,6 +356,7 @@
         private System.Windows.Forms.Button Restart_btn;
         private System.Windows.Forms.Label Game_Over_Msg;
         private System.Windows.Forms.Timer captureTimer;
+        private System.Windows.Forms.PictureBox blind_pbox;
     }
 }
 
