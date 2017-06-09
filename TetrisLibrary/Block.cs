@@ -13,12 +13,14 @@ namespace TetrisLibrary
         public int xpos;
         public int ypos;
         public int item;
+
     }
     public class Block            // 테트리스 블록 
     {
         public byte[,] block_status;                // 테트리스 블록을 구성하는 box의 배치 상태 
         public int originX;                         //블록을 둘러싼 가상의 사각형의 x좌표 원점 
-        public int originY;                         //블록을 둘러싼 가상의 사각형의 y좌표 원점 
+        public int originY;
+        public bool isContain = false;                        //블록을 둘러싼 가상의 사각형의 y좌표 원점 
         public List<Box> blocks = new List<Box>();  // 블록을 구성하는 box의 list 
 
 
@@ -76,8 +78,11 @@ namespace TetrisLibrary
                 temp.BackColor = c;
                 temp.BorderStyle = BorderStyle.FixedSingle;
                 temp.item = r.Next(1, 101);                //1~100 중에 98~100만 아이템(3%확률) 
-                if (temp.item > 98)             //아이템을 보유하면 색상 검정색으로 설정-동현 구현 사항
-                    temp.BackColor = Color.Black;          
+                if (temp.item > 98 && !isContain)                        //아이템을 보유하면 아이템을 표시
+                {
+                    temp.Image = TetrisLibrary.Properties.Resource1.QuestionBox;
+                    this.isContain = true;
+                }
                 this.blocks.Add(temp);
             }
             this.Location_Init();
@@ -162,15 +167,15 @@ namespace TetrisLibrary
         public void Rotation()  //왼쪽으로 90도 회전 
         {
             byte[,] temp = new byte[4, 4];
-            for(int i=0; i<4;i++)                   //block_status 값 임시 저장 
+            for (int i = 0; i < 4; i++)                   //block_status 값 임시 저장 
             {
                 for (int j = 0; j < 4; j++)
                     temp[i, j] = block_status[i, j];
             }
-            for(int i=0; i<4;i++)                   //block_status 왼쪽으로 회전 
+            for (int i = 0; i < 4; i++)                   //block_status 왼쪽으로 회전 
             {
                 for (int j = 0; j < 4; j++)
-                    block_status[i, j] = temp[j,3-i];
+                    block_status[i, j] = temp[j, 3 - i];
             }
 
             int xtemp = originX;                   // box의 Location.x를 설정하기 위한 변수 
@@ -199,7 +204,7 @@ namespace TetrisLibrary
             switch (random1)
             {
                 case 1:
-                    {   
+                    {
                         /*
                          ㅁㅁㅁㅁ
                          */
@@ -210,7 +215,7 @@ namespace TetrisLibrary
                         break;
                     }
                 case 2:
-                    {   
+                    {
                         /*
                          ㅁ
                          ㅁㅁㅁ
@@ -222,11 +227,11 @@ namespace TetrisLibrary
                         break;
                     }
                 case 3:
-                    {   
+                    {
                         /*
                          ㅁㅁ
                            ㅁㅁ
-                         */ 
+                         */
                         this.block_status[1, 1] = 1;
                         this.block_status[1, 2] = 1;
                         this.block_status[2, 2] = 1;
@@ -238,7 +243,7 @@ namespace TetrisLibrary
                         /*
                          ㅁㅁ
                          ㅁㅁ
-                         */ 
+                         */
                         this.block_status[1, 1] = 1;
                         this.block_status[1, 2] = 1;
                         this.block_status[2, 1] = 1;
@@ -246,7 +251,7 @@ namespace TetrisLibrary
                         break;
                     }
                 case 5:
-                    {   
+                    {
                         /*
                              ㅁ
                          ㅁㅁㅁ
@@ -262,7 +267,7 @@ namespace TetrisLibrary
                         /*
                            ㅁㅁ
                          ㅁㅁ
-                         */ 
+                         */
                         this.block_status[1, 2] = 1;
                         this.block_status[1, 3] = 1;
                         this.block_status[2, 1] = 1;
@@ -274,7 +279,7 @@ namespace TetrisLibrary
                         /* 
                            ㅁ
                          ㅁㅁㅁ
-                         */ 
+                         */
                         this.block_status[1, 1] = 1;
                         this.block_status[2, 0] = 1;
                         this.block_status[2, 1] = 1;
