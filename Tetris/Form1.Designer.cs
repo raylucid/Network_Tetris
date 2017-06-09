@@ -228,6 +228,7 @@
             this.Item_List.Size = new System.Drawing.Size(154, 112);
             this.Item_List.TabIndex = 5;
             this.Item_List.UseCompatibleStateImageBehavior = false;
+            this.Item_List.View = System.Windows.Forms.View.List;
             // 
             // label5
             // 
