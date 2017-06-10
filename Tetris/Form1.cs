@@ -77,7 +77,7 @@ namespace Tetris
         public void Copy(string outputFilename)
         {
             bmp = new Bitmap(this.BackGround.Width, this.BackGround.Height);
-
+          
             // Bitmap 이미지 변경을 위해 Graphics 객체 생성
             Graphics gr = Graphics.FromImage(bmp);
             //copyfromscreen 메서드에 사용하기 위해 절대좌표로 변환.
