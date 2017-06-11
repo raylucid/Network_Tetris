@@ -1,56 +1,18 @@
 D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\bin\Debug\Tetris.exe.config
 D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\bin\Debug\Tetris.exe
 D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\bin\Debug\Tetris.pdb
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\bin\Debug\SharpDX.dll
 D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\bin\Debug\TetrisLibrary.dll
 D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\bin\Debug\TetrisPacket.dll
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\bin\Debug\SharpDX.xml
 D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\bin\Debug\TetrisLibrary.pdb
 D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\bin\Debug\TetrisPacket.pdb
 D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\obj\Debug\Tetris.csprojResolveAssemblyReference.cache
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\obj\Debug\Interop.WMPLib.dll
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\obj\Debug\Tetris.csproj.ResolveComReference.cache
 D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\obj\Debug\Tetris.Form1.resources
 D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\obj\Debug\Tetris.Form2.resources
 D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\obj\Debug\Tetris.Properties.Resources.resources
 D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\obj\Debug\Tetris.csproj.GenerateResource.Cache
 D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\obj\Debug\Tetris.exe
 D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\obj\Debug\Tetris.pdb
-E:\Network_Tetris-master\Tetris\bin\Debug\Tetris.exe.config
-E:\Network_Tetris-master\Tetris\bin\Debug\Tetris.exe
-E:\Network_Tetris-master\Tetris\bin\Debug\Tetris.pdb
-E:\Network_Tetris-master\Tetris\bin\Debug\TetrisLibrary.dll
-E:\Network_Tetris-master\Tetris\bin\Debug\TetrisPacket.dll
-E:\Network_Tetris-master\Tetris\bin\Debug\TetrisLibrary.pdb
-E:\Network_Tetris-master\Tetris\bin\Debug\TetrisPacket.pdb
-E:\Network_Tetris-master\Tetris\obj\Debug\Tetris.csprojResolveAssemblyReference.cache
-E:\Network_Tetris-master\Tetris\obj\Debug\Tetris.Form1.resources
-E:\Network_Tetris-master\Tetris\obj\Debug\Tetris.Form2.resources
-E:\Network_Tetris-master\Tetris\obj\Debug\Tetris.Properties.Resources.resources
-E:\Network_Tetris-master\Tetris\obj\Debug\Tetris.csproj.GenerateResource.Cache
-E:\Network_Tetris-master\Tetris\obj\Debug\Tetris.exe
-E:\Network_Tetris-master\Tetris\obj\Debug\Tetris.pdb
-E:\Network_Tetris\Tetris\bin\Debug\Tetris.exe.config
-E:\Network_Tetris\Tetris\bin\Debug\Tetris.exe
-E:\Network_Tetris\Tetris\bin\Debug\Tetris.pdb
-E:\Network_Tetris\Tetris\bin\Debug\TetrisLibrary.dll
-E:\Network_Tetris\Tetris\bin\Debug\TetrisPacket.dll
-E:\Network_Tetris\Tetris\bin\Debug\TetrisLibrary.pdb
-E:\Network_Tetris\Tetris\bin\Debug\TetrisPacket.pdb
-E:\Network_Tetris\Tetris\obj\Debug\Tetris.csprojResolveAssemblyReference.cache
-E:\Network_Tetris\Tetris\obj\Debug\Tetris.Form1.resources
-E:\Network_Tetris\Tetris\obj\Debug\Tetris.Form2.resources
-E:\Network_Tetris\Tetris\obj\Debug\Tetris.Properties.Resources.resources
-E:\Network_Tetris\Tetris\obj\Debug\Tetris.csproj.GenerateResource.Cache
-E:\Network_Tetris\Tetris\obj\Debug\Tetris.exe
-E:\Network_Tetris\Tetris\obj\Debug\Tetris.pdb
-C:\Users\동현\Downloads\Network_Tetris-master (3)\Network_Tetris-master\Tetris\obj\Debug\Tetris.csprojResolveAssemblyReference.cache
-C:\Users\동현\Downloads\Network_Tetris-master (3)\Network_Tetris-master\Tetris\obj\Debug\Tetris.Form1.resources
-C:\Users\동현\Downloads\Network_Tetris-master (3)\Network_Tetris-master\Tetris\obj\Debug\Tetris.Form2.resources
-C:\Users\동현\Downloads\Network_Tetris-master (3)\Network_Tetris-master\Tetris\obj\Debug\Tetris.Properties.Resources.resources
-C:\Users\동현\Downloads\Network_Tetris-master (3)\Network_Tetris-master\Tetris\obj\Debug\Tetris.csproj.GenerateResource.Cache
-C:\Users\동현\Downloads\Network_Tetris-master (3)\Network_Tetris-master\Tetris\obj\Debug\Tetris.exe
-C:\Users\동현\Downloads\Network_Tetris-master (3)\Network_Tetris-master\Tetris\obj\Debug\Tetris.pdb
-C:\Users\동현\Downloads\Network_Tetris-master (3)\Network_Tetris-master\Tetris\bin\Debug\Tetris.exe.config
-C:\Users\동현\Downloads\Network_Tetris-master (3)\Network_Tetris-master\Tetris\bin\Debug\Tetris.exe
-C:\Users\동현\Downloads\Network_Tetris-master (3)\Network_Tetris-master\Tetris\bin\Debug\Tetris.pdb
-C:\Users\동현\Downloads\Network_Tetris-master (3)\Network_Tetris-master\Tetris\bin\Debug\TetrisLibrary.dll
-C:\Users\동현\Downloads\Network_Tetris-master (3)\Network_Tetris-master\Tetris\bin\Debug\TetrisPacket.dll
-C:\Users\동현\Downloads\Network_Tetris-master (3)\Network_Tetris-master\Tetris\bin\Debug\TetrisLibrary.pdb
-C:\Users\동현\Downloads\Network_Tetris-master (3)\Network_Tetris-master\Tetris\bin\Debug\TetrisPacket.pdb

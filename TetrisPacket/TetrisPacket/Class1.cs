@@ -10,7 +10,7 @@ namespace TetrisPacket
 {
     public enum PacketType
     {
-        스샷 = 0, 아이템
+        스샷 = 0, 상대속도증가 = 1, 상대줄추가 = 2, 상대화면가리기 = 3
     }
 
     [Serializable]
@@ -52,6 +52,23 @@ namespace TetrisPacket
     public class ScreenShotPacket : Packet
     {
         public byte[] data;
+    }
+    [Serializable]
+    public class EnemySpeedUpPacket : Packet
+    {
+       // public byte[] data;
+    }
+
+    [Serializable]
+    public class EnemyAddLinePacket : Packet
+    {
+       // public byte[] data;
+    }
+
+    [Serializable]
+    public class EnemyBlindPacket : Packet
+    {
+      //  public byte[] data;
     }
 }
 //가송 구현 사항 -End

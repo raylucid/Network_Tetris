@@ -1,8 +1,3 @@
-D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisLibrary\bin\Debug\TetrisLibrary.dll
-D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisLibrary\bin\Debug\TetrisLibrary.pdb
-D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisLibrary\obj\Debug\TetrisLibrary.dll
-D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisLibrary\obj\Debug\TetrisLibrary.pdb
-D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisLibrary\obj\Debug\TetrisLibrary.csprojResolveAssemblyReference.cache
 E:\Network_Tetris\TetrisLibrary\bin\Debug\TetrisLibrary.dll
 E:\Network_Tetris\TetrisLibrary\bin\Debug\TetrisLibrary.pdb
 E:\Network_Tetris\TetrisLibrary\obj\Debug\TetrisLibrary.csprojResolveAssemblyReference.cache
@@ -15,3 +10,9 @@ C:\Users\동현\Downloads\Network_Tetris-master (3)\Network_Tetris-master\Tetris
 C:\Users\동현\Downloads\Network_Tetris-master (3)\Network_Tetris-master\TetrisLibrary\obj\Debug\TetrisLibrary.csproj.GenerateResource.Cache
 C:\Users\동현\Downloads\Network_Tetris-master (3)\Network_Tetris-master\TetrisLibrary\obj\Debug\TetrisLibrary.dll
 C:\Users\동현\Downloads\Network_Tetris-master (3)\Network_Tetris-master\TetrisLibrary\obj\Debug\TetrisLibrary.pdb
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisLibrary\bin\Debug\TetrisLibrary.dll
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisLibrary\bin\Debug\TetrisLibrary.pdb
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisLibrary\obj\Debug\TetrisLibrary.Properties.Resource1.resources
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisLibrary\obj\Debug\TetrisLibrary.csproj.GenerateResource.Cache
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisLibrary\obj\Debug\TetrisLibrary.dll
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisLibrary\obj\Debug\TetrisLibrary.pdb

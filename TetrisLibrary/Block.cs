@@ -19,8 +19,8 @@ namespace TetrisLibrary
     {
         public byte[,] block_status;                // 테트리스 블록을 구성하는 box의 배치 상태 
         public int originX;                         //블록을 둘러싼 가상의 사각형의 x좌표 원점 
-        public int originY;
-        public bool isContain = false;                        //블록을 둘러싼 가상의 사각형의 y좌표 원점 
+        public int originY;                         //블록을 둘러싼 가상의 사각형의 y좌표 원점 
+        public bool isContain = false;              //블록에 아이템이 있는지를 확인       
         public List<Box> blocks = new List<Box>();  // 블록을 구성하는 box의 list 
 
 
@@ -78,7 +78,7 @@ namespace TetrisLibrary
                 temp.BackColor = c;
                 temp.BorderStyle = BorderStyle.FixedSingle;
                 temp.item = r.Next(1, 101);                //1~100 중에 98~100만 아이템(3%확률) 
-                if (temp.item > 98 && !isContain)                        //아이템을 보유하면 아이템을 표시
+                if (temp.item > 98 && !isContain)          //아이템을 보유하면 아이템을 표시
                 {
                     temp.Image = TetrisLibrary.Properties.Resource1.QuestionBox;
                     this.isContain = true;
@@ -145,6 +145,15 @@ namespace TetrisLibrary
                 b.xpos += 30;
             }
             originX += 30;                       //블록을 둘러싼 영역 X좌표 원점도 이동 
+        }
+        public void Move_up()
+        {
+            foreach(Box b in this.blocks)
+            {
+                b.Location = new Point(b.xpos, b.ypos+30);
+                b.ypos += 30;
+            }
+            originY += 30;
         }
         public void Move_Left()
         {

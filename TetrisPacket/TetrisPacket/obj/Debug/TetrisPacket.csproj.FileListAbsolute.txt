@@ -1,10 +1,18 @@
-D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisPacket\TetrisPacket\bin\Debug\TetrisPacket.dll
-D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisPacket\TetrisPacket\bin\Debug\TetrisPacket.pdb
-D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.csprojResolveAssemblyReference.cache
-D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.dll
-D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.pdb
 E:\Network_Tetris\TetrisPacket\TetrisPacket\bin\Debug\TetrisPacket.dll
 E:\Network_Tetris\TetrisPacket\TetrisPacket\bin\Debug\TetrisPacket.pdb
 E:\Network_Tetris\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.csprojResolveAssemblyReference.cache
 E:\Network_Tetris\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.dll
 E:\Network_Tetris\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.pdb
+C:\Users\동현\Downloads\Network_Tetris-master (3)\Network_Tetris-master\TetrisPacket\TetrisPacket\bin\Debug\TetrisPacket.dll
+C:\Users\동현\Downloads\Network_Tetris-master (3)\Network_Tetris-master\TetrisPacket\TetrisPacket\bin\Debug\TetrisPacket.pdb
+C:\Users\동현\Downloads\Network_Tetris-master (3)\Network_Tetris-master\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.csprojResolveAssemblyReference.cache
+C:\Users\동현\Downloads\Network_Tetris-master (3)\Network_Tetris-master\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.dll
+C:\Users\동현\Downloads\Network_Tetris-master (3)\Network_Tetris-master\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.pdb
+E:\Network_Tetris-master\TetrisPacket\TetrisPacket\bin\Debug\TetrisPacket.dll
+E:\Network_Tetris-master\TetrisPacket\TetrisPacket\bin\Debug\TetrisPacket.pdb
+E:\Network_Tetris-master\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.dll
+E:\Network_Tetris-master\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.pdb
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisPacket\TetrisPacket\bin\Debug\TetrisPacket.dll
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisPacket\TetrisPacket\bin\Debug\TetrisPacket.pdb
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.dll
+D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.pdb
