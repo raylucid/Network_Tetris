@@ -35,6 +35,8 @@ namespace Tetris
         private WindowsMediaPlayer m_wmp; //bgm
         IWMPMedia m_Media;
         IWMPPlaylist PlayList;
+        private uint tot_file_size = 0;
+        private uint cur_file_size = 0;
         //가송 구현 사항 - END
 
         //연호 구현 사항 -Start
@@ -61,7 +63,7 @@ namespace Tetris
         private Bitmap bmp;
         //서버 - 클라이언트 연결 확인용 플래그.
         private bool connect_flag = false;
-
+        private bool conn_over_flag = false;
         private TcpListener listener;
         private TcpClient client;
         //실시간 수신을 위한 쓰레드.
@@ -155,6 +157,12 @@ namespace Tetris
             this.Game_Over_Msg.Visible = true; //게임 오버 메시지 보이기 
             this.Restart_btn.Visible = true;   //재시작 버튼 보이기 
             this.Exit_btn.Visible = true;      //종료 버튼 보이기 
+            if(connect_flag == true)
+            {
+                Send("게임오버"); 
+                connect_flag = false;
+                
+            }     
         }
         public void Block_Push()                       //Next Block에 있는 Block을 게임보드에 추가하고 다음 블록을 Next Block에 추가           
         {
@@ -220,12 +228,10 @@ namespace Tetris
                     this.Combo_label.Text = combo + " Combo!";
                     if (!Combo_label.Visible)
                         this.Combo_label.Visible = true;
-
-
                     m_wmp.controls.play(); //BGM 다시 재생
-
-                }
+                }      
             }
+
             this.Nowfalling = this.Nextfalling;        //Next Block에 있던 block이 Nowfalling이 되게 함 
             foreach (Box b in this.Nowfalling.blocks)  //Next Block에서 해당 block 제거 
                 this.Next_Block.Controls.Remove(b);
@@ -236,6 +242,8 @@ namespace Tetris
             this.Nextfalling.Location_Next();
             foreach (Box b in this.Nextfalling.blocks) //Next Block에 해당 블록 표시 
                 this.Next_Block.Controls.Add(b);
+
+            
         }
         public void Block_Falling() // 블록이 떨어지게 함 
         {
@@ -338,18 +346,20 @@ namespace Tetris
                 {
                     while (-1 != dataReader.Read(this.readBuffer, 0, this.readBuffer.Length))
                     {
-                        ReceiveData();
+                        ReceiveData();                   
                     }
                 }
                 catch
                 {
-                    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    //종료 완벽히 구현 못함
-                    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    connect_flag = false;
-                    captureTimer.Stop();
-                    MessageBox.Show("상대방이 연결을 해제하였습니다.");
-                    return;
+                    if(connect_flag == false)
+                    {
+                 
+                        captureTimer.Stop();
+                        MessageBox.Show("연결이 해제되었습니다.");
+                        receiveThread.Abort();
+                    }
+                   
+                    
                 }
 
             }
@@ -384,14 +394,13 @@ namespace Tetris
                                 fs = new FileStream(filePath, FileMode.Append, FileAccess.Write);
                             }
 
-
+                                                 
                             fs.Write(screenShotPacket.data, 0, 1024);
                             fs.Close();
-
                         }
                         else
                         {
-
+                           
                             PrintScreenShot(filePath);
                             file_flag = false;
                         }
@@ -402,7 +411,12 @@ namespace Tetris
                         //원본
                         EnemySpeedUpPacket esp = (EnemySpeedUpPacket)EnemySpeedUpPacket.Deserialize(this.readBuffer);
                         //         int m_esp_data = Convert.ToInt32((byte)esp.data[0]);
-                        speedUp();
+                       
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            speedUp();
+                        });
+
                         //받은 값에 따라 아이템 적용.
                         break;
                     }
@@ -412,7 +426,10 @@ namespace Tetris
                         EnemyAddLinePacket esp = (EnemyAddLinePacket)EnemyAddLinePacket.Deserialize(this.readBuffer);
                         //       int m_esp_data = Convert.ToInt32((byte)esp.data[0]);
 
-                        appendBottomLine();
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            appendBottomLine();
+                        });
                         //받은 값에 따라 아이템 적용.
                         break;
                     }
@@ -421,12 +438,41 @@ namespace Tetris
                         //원본
                         EnemyBlindPacket esp = (EnemyBlindPacket)EnemyBlindPacket.Deserialize(this.readBuffer);
                         //     int m_esp_data = Convert.ToInt32((byte)esp.data[0]);
-                        Blind();
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            Blind();
+                        });
+                    
                         //받은 값에 따라 아이템 적용.
                         break;
                     }
-
-
+                case (int)PacketType.연결종료:
+                    {
+                        DisconnectPacket dp = (DisconnectPacket)DisconnectPacket.Deserialize(this.readBuffer);
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            
+                            connect_flag = false;
+                            this.Close();
+                        });
+                        break;
+                    }
+                case (int)PacketType.게임오버:
+                    {
+                        GameOverPacket gop = (GameOverPacket)GameOverPacket.Deserialize(this.readBuffer);
+                      
+                        Invoke((MethodInvoker)delegate ()
+                        {
+                            MessageBox.Show("이겼습니다.");
+                            Send("disconnect");
+                            connect_flag = false;
+                            conn_over_flag = true;
+                            Game_Over();
+                            this.Close();
+                        });
+                        break;
+                    }
+                  
             }
 
 
@@ -447,6 +493,7 @@ namespace Tetris
                 Enemy_Screen.Image = Image.FromFile(Fname);
                 receive_number++;
                 receive_number = receive_number % 2;
+            
             }));
 
         }
@@ -533,10 +580,27 @@ namespace Tetris
                 Packet.Serialize(ebp).CopyTo(this.writeBuffer, 0);
                 SendData(this.writeBuffer);
             }
+            else if(dataname == "disconnect")
+            {
+                DisconnectPacket dp = new DisconnectPacket();
+                dp.Type = (int)PacketType.연결종료;
+                dp.Length = sizeof(int);
+                Packet.Serialize(dp).CopyTo(this.writeBuffer, 0);
+                SendData(this.writeBuffer);
+            }
+            else if(dataname == "게임오버")
+            {
+                GameOverPacket gop = new GameOverPacket();
+                gop.Type = (int)PacketType.게임오버;
+                gop.Length = sizeof(int);
+                Packet.Serialize(gop).CopyTo(this.writeBuffer, 0);
+                SendData(this.writeBuffer);
+            }
         }
         //BinaryWriter를 사용하여 byte배열로 변환된 값을 전송한다.
         private void SendData(byte[] a_data)
         {
+
             this.dataWriter.Write(a_data, 0, a_data.Length);
             this.dataWriter.Flush();
             for (int i = 0; i < 1024 * 4; i++)
@@ -700,6 +764,7 @@ namespace Tetris
                 else if (Item_List.TopItem.Text == "상대 화면 가리기")
                 {
                     Send("3");
+                   // Blind();
                     Item_List.TopItem.Remove();
                 }
             }
@@ -714,6 +779,7 @@ namespace Tetris
             }
 
             this.Block_Falling();
+        
         }
 
 
@@ -744,6 +810,7 @@ namespace Tetris
                 {
                     blind_pbox.Visible = false;
                     isblind = false;
+                  
                     blindtc = 0;
                 }
             }
@@ -812,14 +879,8 @@ namespace Tetris
         //가송 구현 사항 -Start
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (captureTimer != null) { captureTimer.Stop(); captureTimer.Dispose(); }
-            if (receiveThread != null) receiveThread.Abort();
-            if (dataReader != null) dataReader.Close();
-            if (dataWriter != null) dataWriter.Close();
-            if (netStream != null) netStream.Close();
-
-            if (listener != null) { listener.Stop(); listener = null; }
-            if (client != null) { client.Close(); client = null; }
+            if(connect_flag)
+                Send("disconnect");
         }
 
         private void captureTimer_Tick(object sender, EventArgs e)
@@ -843,6 +904,7 @@ namespace Tetris
         private void Form1_Load(object sender, EventArgs e)
         {
             Enemy_Screen.Image = null;
+       //     this.blind_pbox.Visible = true;
 
         }
         //가송 구현 사항 -End
@@ -875,7 +937,7 @@ namespace Tetris
 
                 Random r = new Random();
                 itemNum = r.Next(1, 6);
-                //   itemNum = 4;
+                  // itemNum = 5;
                 switch (itemNum)
                 {
                     case 1:
@@ -917,9 +979,14 @@ namespace Tetris
         }
         private void speedUp() //속도 증가 아이템
         {
-            this.tempSpeed = this.nomalSpeed / 4; //현재 속도의 4배 빠르게
-            timer1.Interval = tempSpeed;
-            this.aitem = true;
+           
+                timer1.Stop();
+                this.tempSpeed = this.nomalSpeed / 4;//현재 속도의 4배 빠르게
+                timer1.Interval = this.tempSpeed;
+
+                timer1.Start();
+
+      
         }
         private void remove_endLine() //한 줄 제거 아이템 사용 시 마지막 줄 제거
         {
@@ -1004,6 +1071,7 @@ namespace Tetris
         private void Blind()                                    //화면이 가려짐
         {
             this.blind_pbox.Visible = true;
+        //    this.blind_pbox.BringToFront();
             this.isblind = true;
         }
         private void returnToNSpeed()                           //8초가 되면 속도아이템 효과 해제
@@ -1023,6 +1091,18 @@ namespace Tetris
         private void nomalSpeedUp()
         {
             this.nomalSpeed -= 100;
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (captureTimer != null) { captureTimer.Stop(); captureTimer.Dispose(); }
+            if (receiveThread != null) receiveThread.Abort();
+            if (dataReader != null) dataReader.Close();
+            if (dataWriter != null) dataWriter.Close();
+            if (netStream != null) netStream.Close();
+
+            if (listener != null) { listener.Stop(); listener = null; }
+            if (client != null) { client.Close(); client = null; }
         }
     }
 }

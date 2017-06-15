@@ -63,6 +63,16 @@ namespace Tetris.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap koala {
+            get {
+                object obj = ResourceManager.GetObject("koala", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap lego_2383089_1920 {
             get {
                 object obj = ResourceManager.GetObject("lego-2383089_1920", resourceCulture);

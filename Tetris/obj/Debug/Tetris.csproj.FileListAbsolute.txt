@@ -16,3 +16,21 @@ D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\obj\Debug\Tetris.
 D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\obj\Debug\Tetris.csproj.GenerateResource.Cache
 D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\obj\Debug\Tetris.exe
 D:\ray_lucid\Documents\GitHub repository\Network_Tetris\Tetris\obj\Debug\Tetris.pdb
+E:\sosil3\Network_Tetris\Tetris\bin\Debug\Tetris.exe.config
+E:\sosil3\Network_Tetris\Tetris\bin\Debug\Tetris.exe
+E:\sosil3\Network_Tetris\Tetris\bin\Debug\Tetris.pdb
+E:\sosil3\Network_Tetris\Tetris\bin\Debug\SharpDX.dll
+E:\sosil3\Network_Tetris\Tetris\bin\Debug\TetrisLibrary.dll
+E:\sosil3\Network_Tetris\Tetris\bin\Debug\TetrisPacket.dll
+E:\sosil3\Network_Tetris\Tetris\bin\Debug\SharpDX.xml
+E:\sosil3\Network_Tetris\Tetris\bin\Debug\TetrisLibrary.pdb
+E:\sosil3\Network_Tetris\Tetris\bin\Debug\TetrisPacket.pdb
+E:\sosil3\Network_Tetris\Tetris\obj\Debug\Tetris.csprojResolveAssemblyReference.cache
+E:\sosil3\Network_Tetris\Tetris\obj\Debug\Interop.WMPLib.dll
+E:\sosil3\Network_Tetris\Tetris\obj\Debug\Tetris.csproj.ResolveComReference.cache
+E:\sosil3\Network_Tetris\Tetris\obj\Debug\Tetris.Form1.resources
+E:\sosil3\Network_Tetris\Tetris\obj\Debug\Tetris.Form2.resources
+E:\sosil3\Network_Tetris\Tetris\obj\Debug\Tetris.Properties.Resources.resources
+E:\sosil3\Network_Tetris\Tetris\obj\Debug\Tetris.csproj.GenerateResource.Cache
+E:\sosil3\Network_Tetris\Tetris\obj\Debug\Tetris.exe
+E:\sosil3\Network_Tetris\Tetris\obj\Debug\Tetris.pdb

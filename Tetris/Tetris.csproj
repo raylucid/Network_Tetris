@@ -121,5 +121,8 @@
   <ItemGroup>
     <None Include="Resources\lego-2383089_1920.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\koala.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -16,3 +16,8 @@ D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisPacket\TetrisPacke
 D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisPacket\TetrisPacket\bin\Debug\TetrisPacket.pdb
 D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.dll
 D:\ray_lucid\Documents\GitHub repository\Network_Tetris\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.pdb
+E:\sosil3\Network_Tetris\TetrisPacket\TetrisPacket\bin\Debug\TetrisPacket.dll
+E:\sosil3\Network_Tetris\TetrisPacket\TetrisPacket\bin\Debug\TetrisPacket.pdb
+E:\sosil3\Network_Tetris\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.csprojResolveAssemblyReference.cache
+E:\sosil3\Network_Tetris\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.dll
+E:\sosil3\Network_Tetris\TetrisPacket\TetrisPacket\obj\Debug\TetrisPacket.pdb
